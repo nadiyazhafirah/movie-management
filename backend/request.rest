@@ -1,0 +1,41 @@
+### Login Admin
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "adminpassword"
+}
+
+### Simpan token dari response login ke dalam variabel di bawah ini
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTA2NTAyNjgsImV4cCI6MTc5MDczNjY2OH0.eXiwHqN65cvFEI8gm_-xzBtcty8yyMlLuNv2bEbPa5A
+
+### Get All Genres
+GET http://localhost:3000/genres
+Authorization: Bearer {{token}}
+
+### Create Genre
+POST http://localhost:3000/genres
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nama_genre": "Action"
+}
+
+### Get All Films
+GET http://localhost:3000/films
+Authorization: Bearer {{token}}
+
+### Create Film
+POST http://localhost:3000/films
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "judul": "Avengers: Endgame",
+  "sutradara": "Anthony Russo & Joe Russo",
+  "tahun_rilis": 2019,
+  "durasi": 181,
+  "genre_id": 2
+}
